@@ -27,5 +27,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'lv.lu.finalwork.App'
+    mainClass = 'lv.lu.finalwork.ProductAccountingApplication'
 }

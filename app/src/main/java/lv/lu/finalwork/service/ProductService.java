@@ -1,0 +1,55 @@
+package lv.lu.finalwork.service;
+
+
+
+import lv.lu.finalwork.model.ItemNotFoundException;
+import lv.lu.finalwork.model.repository.Product;
+import lv.lu.finalwork.model.repository.ProductCategory;
+import lv.lu.finalwork.model.ui.ProductInputData;
+import lv.lu.finalwork.repository.ProductRepository;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
+
+public class ProductService {
+
+    private ProductRepository repository;
+
+    public ProductService() {
+
+        this.repository = new ProductRepository();
+    }
+
+    public void save(ProductInputData productInputData){
+        Product product = new Product();
+        product.setName(productInputData.getName());
+        product.setPrice(BigDecimal.valueOf(productInputData.getPrice()));
+        product.setCategory(ProductCategory.valueOf(productInputData.getCategory()));
+        product.setDiscount(BigDecimal.valueOf(productInputData.getDiscount()));
+        product.setDescription(productInputData.getDescription());
+
+        repository.save(product);
+    }
+
+    public Product findById(Long id){
+        if (id == null){
+            throw new IllegalArgumentException("Product Id can't be null");
+        }
+
+        Optional<Product> result = repository.findById(id);
+        if (!result.isPresent()){
+            throw new ItemNotFoundException(
+                    String.format("Product by id: %s is not found", id));
+        }
+        return result.get();
+    }
+
+    public List<Product> findAll (){
+        return null;
+    }
+
+    public void delete (Long id) {
+
+    }
+}
