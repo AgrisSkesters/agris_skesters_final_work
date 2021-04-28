@@ -5,18 +5,37 @@ import java.util.Objects;
 
 public class Product {
 
-    private long id;
+    private Long id;
     private String name;
     private BigDecimal price;
     private ProductCategory category;
     private BigDecimal discount;
     private String description;
 
-    public long getId() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(id, product.id)
+                && Objects.equals(name, product.name)
+                && Objects.equals(price, product.price)
+                && category == product.category
+                && Objects.equals(discount, product.discount)
+                && Objects.equals(description, product.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price, category, discount, description);
+    }
+
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -58,23 +77,5 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return id == product.id
-                && Objects.equals(name, product.name)
-                && Objects.equals(price, product.price)
-                && category == product.category
-                && Objects.equals(discount, product.discount)
-                && Objects.equals(description, product.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, price, category, discount, description);
     }
 }
