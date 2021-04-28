@@ -6,6 +6,7 @@ import lv.lu.finalwork.model.ui.ProductInputData;
 import org.springframework.util.StringUtils;
 
 public class ProductValidator {
+
     public void validate(ProductInputData productInputData) {
 
         if (!StringUtils.hasLength(productInputData.getName())) {

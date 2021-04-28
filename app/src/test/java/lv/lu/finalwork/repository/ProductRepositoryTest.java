@@ -1,3 +1,5 @@
+package lv.lu.finalwork.repository;
+
 import lv.lu.finalwork.model.repository.Product;
 import lv.lu.finalwork.repository.ProductRepository;
 import org.junit.Before;

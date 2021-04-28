@@ -1,8 +1,8 @@
+package lv.lu.finalwork.service;
+
 import lv.lu.finalwork.model.repository.Product;
 import lv.lu.finalwork.model.ui.ProductInputData;
 import lv.lu.finalwork.repository.ProductRepository;
-import lv.lu.finalwork.service.ProductMapper;
-import lv.lu.finalwork.service.ProductService;
 import lv.lu.finalwork.validation.ProductValidator;
 import org.junit.Rule;
 import org.junit.Test;
